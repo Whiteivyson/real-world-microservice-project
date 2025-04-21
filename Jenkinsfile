@@ -22,10 +22,10 @@ pipeline{
             steps {
                 git branch: 'dev-sec-ops-cicd-pipeline-project-one',
                     credentialsId: 'gitcreds',
-                    url: 'https://github.com/whiteivsyon/realworld-microservice-project.git'
+                    url: 'https://github.com/whiteivsyon/real-world-microservice-project.git'
                 }
             }
-            
+
         stage('Install Dependencies') {
             steps {
                 sh "npm install"
