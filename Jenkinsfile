@@ -22,7 +22,7 @@ pipeline{
             steps {
                 git branch: 'dev-sec-ops-cicd-pipeline-project-one',
                     credentialsId: 'gitcreds',
-                    url: 'https://github.com/whiteivsyon/real-world-microservice-project.git'
+                    url: 'https://github.com/Whiteivsyon/real-world-microservice-project.git'
                 }
             }
 
