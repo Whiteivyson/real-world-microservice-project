@@ -18,11 +18,14 @@ pipeline{
                 cleanWs()
             }
         }
-        stage('Checkout from Git'){
-            steps{
-                   git credentialsId: 'gitcreds', git branch: 'dev-sec-ops-cicd-pipeline-project-one', url: 'https://github.com/whiteivsyon/realworld-microservice-project.git'
+        stage('Checkout from Git') {
+            steps {
+                git branch: 'dev-sec-ops-cicd-pipeline-project-one',
+                    credentialsId: 'gitcreds',
+                    url: 'https://github.com/whiteivsyon/realworld-microservice-project.git'
+                }
             }
-        }
+            
         stage('Install Dependencies') {
             steps {
                 sh "npm install"
