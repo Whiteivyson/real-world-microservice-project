@@ -20,9 +20,7 @@ pipeline{
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'dev-sec-ops-cicd-pipeline-project-one',
-                    credentialsId: 'gitcreds',
-                    url: 'https://github.com/Whiteivsyon/real-world-microservice-project.git'
+                git credentialsId: 'gitcreds', branch: 'dev-sec-ops-cicd-pipeline-project-one', url: 'https://github.com/Whiteivsyon/real-world-microservice-project.git'
                 }
             }
 
@@ -87,7 +85,7 @@ pipeline{
         stage('ZAP Dynamic Testing | DAST') {
             steps {
                 sshagent(['OWASP-Zap-Credential']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.138.118.46 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://18.191.233.114:30000/" || true'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.144.89.185 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://3.15.211.165:30000/" || true'
                                                         //JENKINS_PUBLIC_IP                                                      //EKS_WORKER_NODE_IP_ADDRESS:3000
                 }
             }
